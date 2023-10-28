@@ -4,12 +4,9 @@ import "./App.css";
 function App() {
   const [counter, setCounter] = useState(5);
 
-  function handleClick() {
-    if (counter < 10) setCounter(counter + 1);
-  }
-
-  function handleClicke() {
-    if (counter > 0) setCounter(counter - 1);
+  function handleClick(action) {
+    if (counter < 10 && action == "incr") setCounter(counter + 1);
+    else if (counter > 0 && action == "decr") setCounter(counter - 1);
   }
 
   return (
@@ -17,8 +14,8 @@ function App() {
       <h1>React! </h1>
       <h2> Counter value : {counter} </h2>
 
-      <button onClick={handleClick}>Add</button>
-      <button onClick={handleClicke}>Remove</button>
+      <button onClick={() => handleClick("incr")}>Add</button>
+      <button onClick={() => handleClick("decr")}>Remove</button>
     </>
   );
 }
